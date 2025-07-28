@@ -7,8 +7,8 @@
   --rdPurpleThree: #8712c6;
   --rdButtonColor: #ff0077;
 
-  --headerFont: 'Barrio', system-ui;
-  --bodyFont: 'Unkempt', system-ui;
+  --headerFont: 'Avenir ', sans-serif;
+  --bodyFont: 'Avenir', sans-serif;
 }
 
 * {
@@ -17,8 +17,7 @@
   padding: 0;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   overflow-x: hidden;
 }
@@ -28,51 +27,54 @@ body {
   background: linear-gradient(180deg, var(--rdSkyBlue) 10%, var(--burntOrange) 90%);
   color: var(--myForestGreen);
   transition: background 1s ease;
+  line-height: 1.7;
 }
 
-/* === VIDEO HEADER & OVERLAY === */
+/* === VIDEO HEADER === */
 .video-header {
   position: relative;
-  height: 100vh; /* Full screen height */
+  height: 100vh;
   overflow: hidden;
 }
 
-/* Make video fixed behind everything */
 .video-background {
-  position: fixed;   /* FIXED, so it stays while scrolling */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;       /* behind the content */
+  z-index: -1;
 }
 
 .video-overlay {
   position: absolute;
-  top: 50%; /* Center tagline */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;  /* above video */
+  z-index: 1;
   text-align: center;
   color: white;
 }
 
-/* HEADER BASE */
+.tagline {
+  font-size: 3rem;
+  color: var(--rdmustard);
+  letter-spacing: 4px;
+  line-height: 1.3;
+  white-space: nowrap;   /* Prevents wrapping */
+  display: inline-block; /* Ensures it respects the nowrap */
+}
+
+/* === HEADER === */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;
-background: rgba(255, 255, 255, 0.65);
-  transition: background 0.4s ease;
-}
-
-/* Slight background when scrolling over sections */
-.header.shrink {
   background: rgba(255, 255, 255, 0.65);
+  transition: background 0.4s ease, transform 0.4s ease;
 }
-
 
 .header.scroll-down {
   transform: translateY(-100%);
@@ -86,12 +88,10 @@ background: rgba(255, 255, 255, 0.65);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.4s ease, padding 0.4s ease;
   padding: 1.5rem 0;
-  
+  transition: transform 0.4s ease, padding 0.4s ease;
 }
 
-/* Header-logo becomes the controlling container */
 .header-logo {
   position: relative;
   width: 220px;
@@ -104,9 +104,6 @@ background: rgba(255, 255, 255, 0.65);
   width: 180px;
 }
 
-
-
-/* Nav style adjustments */
 .header-nav {
   display: flex;
   gap: 3rem;
@@ -116,109 +113,238 @@ background: rgba(255, 255, 255, 0.65);
 .header-nav a {
   font-family: 'Avenir', sans-serif;
   font-size: 1.4rem;
-  color: rgb(0, 0, 0);
+  color: #000;
   text-decoration: none;
   letter-spacing: 1px;
   transition: color 0.3s;
-}
-
-/* Shrink the entire header (logo + nav) */
-.header.shrink .header-inner {
-  transform: scale(0.85); /* same shrink amount as logo */
-  padding: 0.5rem 0;
 }
 
 .header-nav a:hover {
   color: var(--rdmustard);
 }
 
-
-.tagline {
-  font-size: 3rem;
-  color: var(--rdmustard);
-  letter-spacing: 2px;
-  line-height: 1.3;
+.header.shrink .header-inner {
+  transform: scale(0.85);
+  padding: 0.5rem 0;
 }
 
-
-/* === MAIN BODY === */
-main {
-  line-height: 1.7;
-}
-
-.site-container {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3; /* above video */
-  background: rgba(255, 255, 255, 0.95); /* light overlay for readability */
-}
-
+/* === SECTION BASE === */
 .page-section {
-  padding: 6rem 1rem;
+  padding: 1rem 0rem;
   text-align: left;
 }
 
-/* Typography */
+.section-text {
+  flex: 1;
+  padding: 5rem 6rem;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* optional: vertically center text */
+}
+
+.section-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300; /* Light */
+}
+
+
+
 h2 {
-  font-family: var(--headerFont);
-  font-size: 24px;
-  color: var(--myForestGreen);
-  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 80px;
+  background: var(--rdmustard);
+  margin-top: 0.8rem;
 }
 
 p {
   font-family: var(--bodyFont);
-  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.8;
 }
 
-/* Footer */
+.about {
+  padding: 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: stretch; /* stretches both children to the same height */
+  width: 100%;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the image fills without distortion */
+}
+
+
+/* === SERVICES GRID === */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.service-card h3 {
+  font-family: var(--headerFont);
+  font-size: 1.2rem;
+  margin: 1rem;
+  color: var(--rdPurpleThree);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  margin: 0 1rem 1.5rem;
+  line-height: 1.6;
+  color: var(--myForestGreen);
+}
+
+.projects-content {
+  padding: 0;
+}
+
+.project-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.project-block:nth-child(even) {
+  flex-direction: row-reverse; /* alternate image/text alignment */
+}
+
+.project-block img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.project-details {
+  flex: 1;
+}
+
+.project-details h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.project-details ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.project-details li {
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-block,
+  .project-block:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .project-block img {
+    width: 100%;
+  }
+}
+
+
+
+
+/* === FOOTER === */
 footer {
   text-align: center;
   padding: 2em;
   margin-top: 2em;
 }
 
-
-
-
-
-
-
-
 /* === RESPONSIVE === */
-@media (max-width: 1024px) {
-  h2 {
-    font-size: 22px;
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  p {
-    font-size: 18px;
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .about-text {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  h2::after {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .site-container {
-    max-width: 100%;
-    padding: 1rem;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .overlay-nav {
-    gap: 1.5rem;
-  }
-
   p {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 
 @media (max-width: 480px) {
-  h2 {
-    font-size: 20px;
+  .services-grid {
+    grid-template-columns: 1fr;
   }
-
+  h2 {
+    font-size: 1.25rem;
+  }
   p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
