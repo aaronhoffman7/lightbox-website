@@ -58,7 +58,7 @@ export default function HomePage() {
               <div className="service-card">
                 <img src="/images/greenroof.jpg" alt="Green Roof" />
                 <h3>Green Roof Stewardship</h3>
-                <p>Our team ensures your green roof's performance, compliance, and beauty.</p>
+                <p>Our team ensures your green roof&apos;s performance, compliance, and beauty.</p>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
             </p>
             <p>
               Whether you are pursuing Net-Zero Energy, LEED, another certification, or simply a healthier
-              bottom line for your building, we create customized solutions to meet the project's needs.
+              bottom line for your building, we create customized solutions to meet the project&apos;s needs.
             </p>
           </div>
           <div className="about-image">
