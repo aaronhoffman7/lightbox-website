@@ -29,7 +29,7 @@ export default function HomePage() {
             <h2>SERVICES</h2>
             <div className="services-grid">
               <div className="service-card">
-                <img src="/images/solar.jpg" alt="Solar Energy" />
+                <img src="/photos/banneker.jpg" alt="Solar Energy" />
                 <h3>Solar, Energy Storage, Green Infrastructure</h3>
                 <p>
                   Our investment-grade assessments will quantify the potential for improving your roofs,
@@ -38,25 +38,25 @@ export default function HomePage() {
               </div>
 
               <div className="service-card">
-                <img src="/images/optimization.jpg" alt="Optimization" />
+                <img src="/photos/feasibility.jpg" alt="Optimization" />
                 <h3>Optimization</h3>
                 <p>We help you maximize the value of your land, roof, and parking areas.</p>
               </div>
 
               <div className="service-card">
-                <img src="/images/deployment.jpg" alt="Deployment" />
+                <img src="/photos/wilson.jpg" alt="Deployment" />
                 <h3>Deployment</h3>
                 <p>We oversee the design, construction, and ongoing management of your sustainability projects.</p>
               </div>
 
               <div className="service-card">
-                <img src="/images/om.jpg" alt="Operations and Maintenance" />
+                <img src="/photos/om.jpg" alt="Operations and Maintenance" />
                 <h3>Operations & Maintenance</h3>
                 <p>We ensure optimal performance of your energy systems and green infrastructure.</p>
               </div>
 
               <div className="service-card">
-                <img src="/images/greenroof.jpg" alt="Green Roof" />
+                <img src="/photos/greenroof2.jpg" alt="Green Roof" />
                 <h3>Green Roof Stewardship</h3>
                 <p>Our team ensures your green roof&apos;s performance, compliance, and beauty.</p>
               </div>
@@ -97,7 +97,7 @@ export default function HomePage() {
 
       {/* Project 1 */}
       <div className="project-block">
-        <img src="/images/smartroof.jpg" alt="SmartRoof Program" />
+        <img src="/photos/smartroof.jpg" alt="SmartRoof Program" />
         <div className="project-details">
           <h3>
             SmartRoof Program,<br />
@@ -121,12 +121,12 @@ export default function HomePage() {
             <li>Portfolio currently in development with schools under construction in 2025.</li>
           </ul>
         </div>
-        <img src="/images/aacps.jpg" alt="Anne Arundel Schools Solar" />
+        <img src="/photos/aacps.jpg" alt="Anne Arundel Schools Solar" />
       </div>
 
       {/* Project 3 */}
       <div className="project-block">
-        <img src="/images/wmata.jpg" alt="WMATA Solar Program" />
+        <img src="/photos/wmata.jpg" alt="WMATA Solar Program" />
         <div className="project-details">
           <h3>Solar Program, Washington Metro Transit Authority</h3>
           <ul>
