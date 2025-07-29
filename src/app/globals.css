@@ -106,7 +106,7 @@ body {
 
 .header-nav {
   display: flex;
-  gap: 6rem;
+  gap: 3rem;
   margin-top: 0.5rem;
 }
 
@@ -238,30 +238,31 @@ p {
   color: var(--myForestGreen);
 }
 
-.projects-content {
-  padding: 0;
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space between projects */
 }
 
 .project-block {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
-  margin-bottom: 4rem;
 }
 
 .project-block:nth-child(even) {
-  flex-direction: row-reverse; /* alternate image/text alignment */
+  flex-direction: row-reverse;
 }
 
 .project-block img {
-  width: 40%;
-  height: auto;
+  width: 30%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
+
 .project-details {
-  flex: 1;
+  width: 50%;
 }
 
 .project-details h3 {
