@@ -130,8 +130,18 @@ body {
 
 /* === SECTION BASE === */
 .page-section {
-  padding: 1rem 0rem;
+  padding: .4rem .4rem;
   text-align: left;
+  border-top: 6px solid var(--rdLightboxBlue); /* optional border between sections */
+}
+
+
+#services.page-section {
+  border-top: none;
+}
+
+.page-section:last-of-type {
+  border-bottom: none;
 }
 
 .section-text {
@@ -172,20 +182,19 @@ h2::after {
 
 p {
   font-family: var(--bodyFont);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   line-height: 1.8;
+  color: #000000;
 }
 
 .about {
-  padding: 0;
-  background: white; /* container still full width */
+  background: none; /* container still full width */
 }
 
 .about-content {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  width: 100%;
   background: white;   /* Ensure the entire row is white */
 }
 
@@ -295,13 +304,11 @@ p {
 
 
 .contact {
-  padding: 0;
-  background: white;
+  background: none;
 }
 
 .contact-content {
   display: flex;
-  width: 100%;
   min-height: 400px;
 }
 
