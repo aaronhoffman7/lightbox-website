@@ -32,10 +32,10 @@ export default function HomePage() {
         </div>
       </section>
 
- {/* SERVICES SECTION */}
-      <section id="services" className="page-section services">
-        <div className="services-content">
-          <div className="section-text">
+{/* SERVICES SECTION */}
+<section id="services" className="page-section services">
+  <div className="services-content">
+    <div className="section-text">
             <h2>SERVICES</h2>
             <div className="services-grid">
               <div className="service-card">
@@ -76,9 +76,9 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="page-section about">
-        <div className="about-content">
-          <div className="section-text">
+     <section id="about" className="page-section about">
+  <div className="about-content">
+    <div className="section-text">
             <h2>ABOUT</h2>
             <p>
               Lightbox is an energy and sustainability infrastructure deployment firm. We specialize in
@@ -99,12 +99,11 @@ export default function HomePage() {
 
      
 
-      {/* PROJECTS SECTION */}
-    <section id="projects" className="page-section projects">
+  {/* PROJECTS SECTION */}
+<section id="projects" className="page-section projects">
+  <div className="projects-content">
     <div className="section-text">
       <h2>PROJECTS</h2>
-      {/* New wrapper around the blocks */}
-     <div className="project-list">
   {/* Project 1 */}
   <div className="project-block">
     <img src="/photos/smartroof.jpg" alt="SmartRoof Program" />
@@ -160,17 +159,40 @@ export default function HomePage() {
   </div>
 </section>
 
+{/* CONTACT SECTION */}
+<section id="contact" className="page-section contact">
+  <div className="contact-content">
 
+    {/* MAP COLUMN */}
+    <div className="contact-map">
+      <h3 className="map-title">Main Office:</h3>
+      <p className="map-address">1701 Rhode Island Ave NW, Washington, DC 20036</p>
+      <iframe
+        title="Lightbox Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0910722549893!2d-77.04133758784667!3d38.906711671604064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7bf5a7137cb%3A0xbdbf45199db718b!2s1701%20Rhode%20Island%20Ave%20NW%2C%20Washington%2C%20DC%2020036!5e1!3m2!1sen!2sus!4v1753812603284!5m2!1sen!2sus"
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+    </div>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="page-section contact">
-        <div className="contact-content">
-          <div className="section-text">
-            <h2>CONTACT</h2>
-            <p>Email us at info@lightboxenergy.com</p>
-          </div>
-        </div>
-      </section>
+    <div className="contact-form">
+      <h2>CONTACT</h2>
+      <p>Email us at info@lightboxenergy.com or use the form below:</p>
+      <form>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label htmlFor="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label htmlFor="message">Message</label>
+        <textarea id="message" name="message" rows={4} required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
