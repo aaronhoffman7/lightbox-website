@@ -13,9 +13,19 @@ export default function HomePage() {
     <main>
       {/* VIDEO BACKGROUND FIXED */}
       <section className="video-header">
-        <video autoPlay muted loop playsInline className="video-background">
-          <source src="/videos/droneWebsite.mp4" type="video/mp4" />
-        </video>
+        <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  poster="/videos/droneWebsite-poster.jpg"
+  className="video-background"
+>
+  <source src="/videos/droneWebsite-small.webm" type="video/webm" />
+  <source src="/videos/droneWebsite-small.mp4" type="video/mp4" />
+</video>
+
 
         <div className="video-overlay">
           <h1 className="tagline">Future-proofing the built environment</h1>
