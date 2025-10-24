@@ -258,14 +258,14 @@ p {
 /* Refine button size and typography */
 .photo-break__button {
   pointer-events: auto;
-  background: var(--rdButtonColor);
+  background: var(--burntOrange);
   color: #fff;
   font-family: var(--headerFont);
   border: none;
   border-radius: 40px;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  padding: 1.2rem 2.2rem;
+  padding: 1.1rem 2.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -278,14 +278,14 @@ p {
 /* Button hover animation */
 .photo-break__button:hover {
   transform: scale(1.05);
-  background: var(--burntOrange);
+  background: var(--rdLightboxBlue);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Header line inside button */
 .photo-break__button-header {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 550;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #fff;
@@ -293,8 +293,8 @@ p {
 
 /* Subtext line inside button */
 .photo-break__button-sub {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  font-weight: 300;
   color: #f9f9f9;
   line-height: 1.4;
   max-width: 90%;
