@@ -62,7 +62,7 @@ export default function HomeView() {
               <div className="service-card">
                 <img src="/photos/batteries3.jpg" alt="Optimization" />
                 <h3>Energy Optimization & Management</h3>
-                <p>We use data-driven insights to optimize building performance, integrating battery storage, load shifting, and peak demand strategies to lower costs and emissions. We'll help you take advantage of every applicable rebate, production incentive, and tax credit during your energy upgrade. </p>
+                <p>We use data-driven insights to optimize building performance, integrating battery storage, load shifting, and peak demand strategies to lower costs and emissions. We&apos;ll help you take advantage of every applicable rebate, production incentive, and tax credit during your energy upgrade. </p>
               </div>
 
               <div className="service-card">
