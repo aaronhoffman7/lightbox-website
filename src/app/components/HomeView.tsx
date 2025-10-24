@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePageTitle } from "../context/PageTitleContext";
 
 export default function HomeView() {
@@ -18,6 +18,41 @@ export default function HomeView() {
     if (setTitle) setTitle("Home");   // ✅ guard the call
     // or: setTitle?.("Home");
   }, [setTitle]);
+
+    // 👇 visibility state for photo-break button
+  const [showButton, setShowButton] = useState(false);
+
+useEffect(() => {
+  const section = document.getElementById("photo-break");
+  if (!section) return;
+
+  const isCenterInside = () => {
+    const r = section.getBoundingClientRect();
+    const midY = window.innerHeight / 2;
+    return r.top <= midY && r.bottom >= midY;
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      setShowButton(isCenterInside());
+      ticking = false;
+    });
+  };
+
+  // initial + listeners
+  setShowButton(isCenterInside());
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}, []);
+
 
   return (
     <main>
@@ -93,13 +128,20 @@ export default function HomeView() {
         </div>
       </section>
 
-      {/* PHOTO BREAK — Batteries */}
-<section className="photo-break" aria-label="BESS visual">
-  <div className="photo-break__overlay">
-    {/* Optional caption — remove if you want just the image */}
-    {/* <span className="photo-break__caption">Battery Energy Storage</span> */}
+{/* PHOTO BREAK — Batteries */}
+<section id="photo-break" className="photo-break" aria-label="BESS visual">
+  <div className={`photo-break__overlay ${showButton ? "visible" : ""}`}>
+    <button className="photo-break__button">
+  Massachusetts Property Owners:<br />
+  <span style={{ fontWeight: 500 }}>
+    learn how to earn passive income through a new state battery incentive program
+  </span>
+</button>
+
   </div>
 </section>
+
+
 
 
       {/* ABOUT SECTION */}

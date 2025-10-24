@@ -35,7 +35,9 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  z-index: 0;
 }
+
 
 .video-background {
   position: fixed;
@@ -52,7 +54,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 0;
   text-align: center;
   color: white;
 }
@@ -133,6 +135,8 @@ body {
   padding: .4rem .4rem;
   text-align: left;
   border-top: 6px solid var(--rdLightboxBlue); /* optional border between sections */
+  position: relative;
+  z-index: 3; 
 }
 
 
@@ -214,71 +218,79 @@ p {
 
 }
 
-/* ===== PHOTO BREAK (full-bleed parallax) ===== */
+/* The image slice itself (unchanged) */
 .photo-break {
-  /* break out of section padding/borders */
   width: 100%;
-  height: clamp(40vh, 60vh, 80vh);
-  padding: 0;                    /* no inner spacing */
-  border: none;                  /* no blue divider for this slice */
+  height: 70vh;
   position: relative;
-  overflow: hidden;
-
-  /* image */
   background-image: url("/photos/batteries1.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
-  /* simple parallax */
-  background-attachment: fixed;  /* desktop parallax */
+  background-attachment: fixed; /* desktop parallax */
+  overflow: hidden;
 }
-
-/* subtle dark overlay for contrast, optional */
 .photo-break::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    rgba(0,0,0,0.15),
-    rgba(0,0,0,0.15)
-  );
-  pointer-events: none;
+  background: rgba(0,0,0,0.35); /* contrast for button */
 }
 
-/* content layer (centered) */
+/* The fixed, centered overlay. Default: fully hidden (no ghost). */
 .photo-break__overlay {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  z-index: 2;                 /* below sections (3), above photo-break background */
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+}
+.photo-break__overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s;
 }
 
-/* optional caption style */
-.photo-break__caption {
+/* Button */
+.photo-break__button {
+  pointer-events: auto;            /* clickable when visible */
+  background: var(--burntOrange);
   color: #fff;
   font-family: var(--headerFont);
-  letter-spacing: 2px;
-  font-size: clamp(0.9rem, 2vw, 1.25rem);
-  padding: 0.6rem 1rem;
-  background: rgba(0,0,0,0.35);
-  border-radius: 10px;
-  backdrop-filter: blur(4px);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.photo-break__button:hover {
+  transform: scale(1.08);
+  background: var(--rdLightboxBlue);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Mobile/iOS fix: disable background-attachment: fixed (janky on iOS) */
+/* Mobile fallback: iOS hates background-attachment: fixed */
 @media (max-width: 900px) {
-  .photo-break {
-    background-attachment: scroll;     /* fallback */
-  }
+  .photo-break { background-attachment: scroll; }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .photo-break {
-    background-attachment: scroll;
+  .photo-break__overlay,
+  .photo-break__overlay.visible {
+    transition: opacity 0.3s linear, visibility 0s;
+    transform: translate(-50%, -50%); /* no scale anim */
   }
 }
+
+
 
 
 /* === SERVICES GRID === */
@@ -537,4 +549,16 @@ footer {
   p {
     font-size: 1rem;
   }
+}
+
+/* Ensure normal sections paint ABOVE the fixed overlay */
+.page-section {
+  position: relative; /* create a stacking context */
+  z-index: 3;
+}
+
+
+/* Fixed overlay sits BELOW sections, ABOVE the batteries background */
+.photo-break__overlay {
+  z-index: 1; /* was 2/6; lower than sections (3), higher than .photo-break (0) */
 }
