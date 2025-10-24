@@ -8,7 +8,7 @@ export default function HomeView() {
   let setTitle: ((t: string) => void) | undefined;
 
   try {
-    const [_title, _setTitle] = usePageTitle();
+    const [, _setTitle] = usePageTitle();
     setTitle = _setTitle;
   } catch {
     // running outside provider (e.g. in Preview) — ignore
@@ -93,7 +93,14 @@ export default function HomeView() {
         </div>
       </section>
 
-      
+      {/* PHOTO BREAK — Batteries */}
+<section className="photo-break" aria-label="BESS visual">
+  <div className="photo-break__overlay">
+    {/* Optional caption — remove if you want just the image */}
+    {/* <span className="photo-break__caption">Battery Energy Storage</span> */}
+  </div>
+</section>
+
 
       {/* ABOUT SECTION */}
      <section id="about" className="page-section about">
@@ -169,7 +176,7 @@ export default function HomeView() {
   <div className="project-block">
     <img src="/photos/whitehouse.jpg" alt="White House Solar Challenge" />
     <div className="project-details">
-      <h3>White House’s Capital Solar Challenge, General Services Administration, Washington, DC</h3>
+      <h3>White House&rsquo;s Capital Solar Challenge, General Services Administration, Washington, DC</h3>
       <ul>
         <li>Waterproofing and financial consulting increased solar potential by 1 MW.</li>
         <li>Identified major cost reductions and strategies for PV systems and SREC treatment.</li>
