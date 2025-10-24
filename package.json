@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@previewjs/config": "^7.0.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -23,5 +24,10 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "preview.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
