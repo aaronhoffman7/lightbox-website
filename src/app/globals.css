@@ -140,7 +140,7 @@ body {
 /* === SECTION BASE === */
 .page-section {
   background: #fff;  
-  padding: 0rem 0rem;
+  padding: 1.9rem 0rem;
   text-align: left;
   border-top: none;
   position: relative;
@@ -179,14 +179,13 @@ body {
 }
 
 .section-text {
-  flex: 1 1 70%;
-  padding: 2rem 3rem;
-  background: #fff;
+  flex: 1;
+  padding: 0;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center; /* optional: vertically center text */
   width: 100%;
-  z-index: 2; /* ensures it stays above overlapping image edge */
 }
 
 .section-text p {
@@ -226,55 +225,28 @@ p {
   background: #fff; /* container still full width */
 }
 
-/* Make the row let children stretch vertically */
 .about-content {
   display: flex;
-  align-items: stretch;       /* both columns same height */
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* Right column that bleeds to the viewport edge */
-.about-image {
-  flex: 1 1 70%;
-  position: relative;
-  overflow: hidden;
-  margin-right: calc(50% - 50vw); /* push image to viewport edge */
-  display: flex;
   align-items: stretch;
+  justify-content: space-between;
+  background: transparent;   /* Ensure the entire row is white */
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
   justify-content: flex-end;
+  align-items: center;
+  background: transparent;   /* Fills behind the image and up to the right edge */
 }
 
-/* The image fills its column */
 .about-image img {
-  width: 70%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right center;
-  display: block;
-}
+  width: 70%;         /* Scales the image down */
+  height: auto;
+  object-fit: contain;
+  display: block;     /* Removes any inline spacing artifacts */
 
-/* --- Responsive: stack vertically on small screens --- */
-@media (max-width: 900px) {
-  .about-content {
-    flex-direction: column;
-  }
-  .about-image {
-    margin-right: 0;
-    width: 100%;
-    height: auto;
-  }
-  .about-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
 }
-
 
 /* The image slice itself (unchanged) */
 .photo-break {
@@ -662,35 +634,6 @@ footer {
   }
   p {
     font-size: 1rem;
-  }
-}
-
-/* Smaller, more balanced on desktop */
-@media (min-width: 901px) {
-  .photo-break__button {
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    max-width: 500px;
-  }
-  .photo-break__button-header {
-    font-size: 1.2rem;
-  }
-  .photo-break__button-sub {
-    font-size: 0.9rem;
-  }
-}
-
-/* Comfortable scaling for mobile */
-@media (max-width: 600px) {
-  .photo-break__button {
-    max-width: 85%;
-    padding: 1rem 1.4rem;
-  }
-  .photo-break__button-header {
-    font-size: 1.1rem;
-  }
-  .photo-break__button-sub {
-    font-size: 0.9rem;
   }
 }
 
