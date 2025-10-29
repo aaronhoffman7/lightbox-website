@@ -140,7 +140,7 @@ body {
 /* === SECTION BASE === */
 .page-section {
   background: #fff;  
-  padding: 1.9rem 0rem;
+  padding: 0rem 0rem;
   text-align: left;
   border-top: none;
   position: relative;
@@ -179,13 +179,14 @@ body {
 }
 
 .section-text {
-  flex: 1;
-  padding: 0;
-  background: transparent;
+  flex: 1 1 70%;
+  padding: 2rem 3rem;
+  background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center; /* optional: vertically center text */
   width: 100%;
+  z-index: 2; /* ensures it stays above overlapping image edge */
 }
 
 .section-text p {
@@ -225,28 +226,67 @@ p {
   background: #fff; /* container still full width */
 }
 
+/* Make the row let children stretch vertically */
 .about-content {
   display: flex;
-  align-items: stretch;
+  align-items: stretch;       /* both columns same height */
   justify-content: space-between;
-  background: transparent;   /* Ensure the entire row is white */
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Override the generic container padding just for ABOUT */
+.page-section.about .about-content {
+  padding-left: 2rem;
+  padding-right: 0;           /* remove right padding so the image can bleed */
+}
+
+/* Right column that bleeds to the viewport edge */
 .about-image {
-  flex: 1;
+  flex: 0 1 40%;
+  position: relative;
+  overflow: hidden;
+  margin-right: calc(50% - 50vw);  /* flush to browser edge */
   display: flex;
+  align-items: stretch;
   justify-content: flex-end;
-  align-items: center;
-  background: transparent;   /* Fills behind the image and up to the right edge */
 }
 
+/* The image fills its column */
+/* Make the image fill the column vertically and hug the right edge */
 .about-image img {
-  width: 70%;         /* Scales the image down */
-  height: auto;
-  object-fit: contain;
-  display: block;     /* Removes any inline spacing artifacts */
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;          /* fills column height */
+  height: 100%;
+  width: auto;        /* maintain aspect ratio */
+  max-width: none;
+  object-fit: cover;  /* crop if needed */
+  object-position: right center;
+  display: block;
 }
+
+
+/* --- Responsive: stack vertically on small screens --- */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .about-image {
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+  }
+  .about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 
 /* The image slice itself (unchanged) */
 .photo-break {
