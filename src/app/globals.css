@@ -237,38 +237,26 @@ p {
   overflow: hidden;
 }
 
-/* Override the generic container padding just for ABOUT */
-.page-section.about .about-content {
-  padding-left: 2rem;
-  padding-right: 0;           /* remove right padding so the image can bleed */
-}
 
 /* Right column that bleeds to the viewport edge */
 .about-image {
-  flex: 0 1 40%;
+  flex: 1 1 70%;
   position: relative;
   overflow: hidden;
-  margin-right: calc(50% - 50vw);  /* flush to browser edge */
+  margin-right: calc(50% - 50vw); /* push image to viewport edge */
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
 }
 
 /* The image fills its column */
-/* Make the image fill the column vertically and hug the right edge */
 .about-image img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;          /* fills column height */
+  width: 70%;
   height: 100%;
-  width: auto;        /* maintain aspect ratio */
-  max-width: none;
-  object-fit: cover;  /* crop if needed */
+  object-fit: cover;
   object-position: right center;
   display: block;
 }
-
 
 /* --- Responsive: stack vertically on small screens --- */
 @media (max-width: 900px) {
