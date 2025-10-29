@@ -130,13 +130,15 @@ useEffect(() => {
 
 {/* PHOTO BREAK — Batteries */}
 <section id="photo-break" className="photo-break" aria-label="BESS visual">
-  <div className={`photo-break__overlay ${showButton ? "visible" : ""}`}>
-<button className="photo-break__button">
-  <span className="photo-break__button-header">Massachusetts Property Owners</span>
-  <span className="photo-break__button-sub">
-    learn how to earn passive income through a new state battery incentive program
-  </span>
-</button>
+  <div className="photo-break__sticky">
+    <div className={`photo-break__overlay ${showButton ? "visible" : ""}`}>
+      <button className="photo-break__button">
+        <span className="photo-break__button-header">Massachusetts Property Owners</span>
+        <span className="photo-break__button-sub">
+          learn how to earn passive income through a new state battery incentive program
+        </span>
+      </button>
+    </div>
   </div>
 </section>
 

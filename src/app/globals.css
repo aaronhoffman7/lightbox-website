@@ -140,7 +140,7 @@ body {
 /* === SECTION BASE === */
 .page-section {
   background: #fff;  
-  padding: .4rem 0rem;
+  padding: 1.9rem 0rem;
   text-align: left;
   border-top: none;
   position: relative;
@@ -329,7 +329,7 @@ p {
   border-radius: 40px;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  padding: 1.1rem 2.1rem;
+  padding: 0.6rem 1.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -348,7 +348,7 @@ p {
 
 /* Header line inside button */
 .photo-break__button-header {
-  font-size: 1.2rem;
+  font-size: 0.85rem;
   font-weight: 550;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -357,44 +357,12 @@ p {
 
 /* Subtext line inside button */
 .photo-break__button-sub {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 300;
   color: #f9f9f9;
   line-height: 1.4;
-  max-width: 90%;
+  max-width: 80%;
 }
-
-/* Smaller, more balanced on desktop */
-@media (min-width: 901px) {
-  .photo-break__button {
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    max-width: 500px;
-  }
-  .photo-break__button-header {
-    font-size: 1.2rem;
-  }
-  .photo-break__button-sub {
-    font-size: 0.9rem;
-  }
-}
-
-/* Comfortable scaling for mobile */
-@media (max-width: 600px) {
-  .photo-break__button {
-    max-width: 85%;
-    padding: 1rem 1.4rem;
-  }
-  .photo-break__button-header {
-    font-size: 1.1rem;
-  }
-  .photo-break__button-sub {
-    font-size: 0.9rem;
-  }
-}
-
-
-
 
 
 /* === SERVICES GRID === */
@@ -586,6 +554,15 @@ p {
   background: var(--burntOrange);
 }
 
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 2em;
+  margin-top: 0em;
+  background: #fff;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .contact-content {
@@ -614,15 +591,6 @@ p {
 }
 
 
-
-
-/* === FOOTER === */
-footer {
-  text-align: center;
-  padding: 2em;
-  margin-top: 0em;
-  background: #fff;
-}
 
 /* === RESPONSIVE === */
 @media (max-width: 1200px) {
@@ -668,3 +636,33 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* Smaller, more balanced on desktop */
+@media (min-width: 901px) {
+  .photo-break__button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    max-width: 500px;
+  }
+  .photo-break__button-header {
+    font-size: 1.2rem;
+  }
+  .photo-break__button-sub {
+    font-size: 0.9rem;
+  }
+}
+
+/* Comfortable scaling for mobile */
+@media (max-width: 600px) {
+  .photo-break__button {
+    max-width: 85%;
+    padding: 1rem 1.4rem;
+  }
+  .photo-break__button-header {
+    font-size: 1.1rem;
+  }
+  .photo-break__button-sub {
+    font-size: 0.9rem;
+  }
+}
+
