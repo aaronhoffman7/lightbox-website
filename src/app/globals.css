@@ -93,6 +93,18 @@ body {
   transform: translateY(0);
 }
 
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 6px;
+  background: var(--rdLightboxBlue);
+  z-index: 12; /* above header background */
+}
+
 .header-inner {
   display: flex;
   flex-direction: column;
@@ -178,6 +190,7 @@ body {
   z-index: 5;
 }
 
+
 .section-text {
   flex: 1;
   padding: 0;
@@ -221,32 +234,75 @@ p {
   color: #000000;
 }
 
-.about {
-  background: #fff; /* container still full width */
+/* === ABOUT SECTION === */
+
+/* Remove vertical padding so content (and image) can touch blue bars */
+.about.page-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #fff;
 }
 
+/* Layout wrapper: two columns, same height */
 .about-content {
   display: flex;
-  align-items: stretch;
+  align-items: stretch;        /* both columns match height */
   justify-content: space-between;
-  background: transparent;   /* Ensure the entire row is white */
+  background: transparent;
 }
 
+/* Full-width row, no centering constraints */
+.about .about-content {
+  max-width: none;
+  width: 100vw;
+  margin: 0;
+  padding: 0;                  /* children handle their own padding */
+}
+
+/* Text column: pushed in from left, readable width */
+.about .section-text {
+  max-width: 1050px;                   /* keep copy readable */
+  padding: 4rem 3rem 4rem 5rem;       /* top, right, bottom, LEFT */
+}
+
+/* Image column: full height, flush right */
 .about-image {
-  flex: 1;
+  flex: 0 0 30%;   /* instead of growing indefinitely */
   display: flex;
+  align-items: stretch;
   justify-content: flex-end;
-  align-items: center;
-  background: transparent;   /* Fills behind the image and up to the right edge */
+  background: transparent;
 }
 
 .about-image img {
-  width: 70%;         /* Scales the image down */
-  height: auto;
-  object-fit: contain;
-  display: block;     /* Removes any inline spacing artifacts */
-
+  width: 100%;                        /* fill entire right column */
+  height: 100%;                       /* stretch from top blue bar to bottom blue bar */
+  object-fit: cover;
+  display: block;
 }
+
+/* === ABOUT: RESPONSIVE === */
+@media (max-width: 900px) {
+  .about.page-section {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about .section-text {
+    max-width: 100%;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-top: 1.5rem;
+  }
+}
+
 
 /* The image slice itself (unchanged) */
 .photo-break {
@@ -464,10 +520,9 @@ p {
 
 
 .services .services-content,
-.about .about-content,
 .projects .projects-content,
 .contact .contact-content {
-  max-width: 1200px;   /* keep lines readable; remove if you want true edge-to-edge */
+  max-width: 1400px;   /* keep lines readable; remove if you want true edge-to-edge */
   margin: 0 auto;
   padding: 0rem 2rem;  /* moved from .section-text */
 }
@@ -561,79 +616,5 @@ footer {
   padding: 2em;
   margin-top: 0em;
   background: #fff;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contact-content {
-    flex-direction: column;
-  }
-  .contact-map,
-  .contact-form {
-    flex: none;
-    width: 100%;
-    min-height: 300px;
-  }
-}
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .project-block,
-  .project-block:nth-child(even) {
-    flex-direction: column;
-  }
-
-  .project-block img {
-    width: 100%;
-  }
-}
-
-
-
-/* === RESPONSIVE === */
-@media (max-width: 1200px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .about-content {
-    flex-direction: column;
-  }
-  .about-text {
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  h2 {
-    text-align: center;
-  }
-  h2::after {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  p {
-    font-size: 1.125rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  h2 {
-    font-size: 1.25rem;
-  }
-  p {
-    font-size: 1rem;
-  }
 }
 

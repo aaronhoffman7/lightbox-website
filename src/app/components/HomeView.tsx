@@ -102,7 +102,7 @@ useEffect(() => {
 
               <div className="service-card">
                 <img src="/photos/feasibility.jpg" alt="Deployment" />
-                <h3>Procurement, Deployment, & Construction Support</h3>
+                <h3>Procurement & Deployment</h3>
                 <p>We oversee solar, storage, and EV charger projects from deal structuring and RFP development through engineering, permitting, and construction- 
                   ensuring safety, performance, and compliance from design through commissioning.</p>
               </div>

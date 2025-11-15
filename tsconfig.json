@@ -24,12 +24,20 @@
         "name": "next"
       }
     ],
-  "baseUrl": "src",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "__previewjs__/*"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "__previewjs__/*",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
