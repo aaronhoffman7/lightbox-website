@@ -618,3 +618,151 @@ footer {
   background: #fff;
 }
 
+
+/* === MOBILE OPTIMIZATION (phones) === */
+@media (max-width: 600px) {
+  /* Header: more compact */
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .header-logo {
+    width: 150px;
+    margin-bottom: 0;
+  }
+
+  .header-nav {
+    gap: 0.75rem;
+    margin-top: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .header-nav a {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .header.shrink .header-inner {
+    transform: none;          /* avoid squishing twice on small screens */
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Hero / tagline */
+  .video-header {
+    height: 75vh;             /* slightly shorter on phones */
+  }
+
+  .tagline {
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    white-space: normal;      /* allow wrapping on small screens */
+    padding: 0 1.5rem;
+  }
+
+  /* Global section padding & headings */
+  .page-section {
+    padding: 1.5rem 0;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    text-align: center;
+  }
+
+  h2::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ABOUT mobile layout */
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about .section-text {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .about-image {
+    flex: none;
+    height: 220px;           /* shorter image band on phones */
+    margin-top: 0.5rem;
+  }
+
+  .about-image img {
+    height: 100%;
+  }
+
+  /* Constrain inner content horizontally */
+  .services .services-content,
+  .projects .projects-content,
+  .contact .contact-content {
+    padding: 0 1.25rem;
+  }
+
+  /* SERVICES: single column */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-card img {
+    height: 140px;
+  }
+
+  /* PROJECTS: stack image + text */
+  .project-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-block:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .project-block img {
+    width: 100%;
+  }
+
+  .project-details {
+    width: 100%;
+  }
+
+  /* PHOTO BREAK: avoid fixed attachment on mobile */
+  .photo-break {
+    height: 40vh;
+    background-attachment: scroll;  /* better behavior on iOS */
+  }
+
+  /* CONTACT: single column */
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-map {
+    padding-top: 2rem;
+  }
+
+  .contact-map iframe {
+    width: 100%;
+    height: 260px;
+  }
+
+  .contact-form {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Footer: slightly tighter */
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
