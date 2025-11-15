@@ -627,6 +627,7 @@ footer {
   justify-content: space-between !important;
   align-items: center !important;
   padding: 0.75rem 1rem !important;
+  column-gap: 1.25rem !important;   /* NEW: adds spacing between logo + nav */
 }
 
 .header-logo {
@@ -665,6 +666,9 @@ footer {
   }
 
   .tagline {
+    max-width: 90%;          /* NEW: widens text block */
+    margin: 0 auto;          /* NEW: centers it cleanly */
+    line-height: 1.35;        /* slightly taller for readability */
     font-size: 1.7rem;
     letter-spacing: 2px;
     white-space: normal;      /* allow wrapping on small screens */
