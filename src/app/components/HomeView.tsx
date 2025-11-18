@@ -103,8 +103,8 @@ useEffect(() => {
               <div className="service-card">
                 <img src="/photos/feasibility.jpg" alt="Deployment" />
                 <h3>Procurement & Deployment</h3>
-                <p>We oversee solar, storage, and EV charger projects from deal structuring and RFP development through engineering, permitting, and construction- 
-                  ensuring safety, performance, and compliance from design through commissioning.</p>
+                <p>We oversee solar, storage, and EV charger projects from deal structuring and RFP development through engineering, construction and commissioning- 
+                  prioritizing safety, performance, and compliance.</p>
               </div>
 
               <div className="service-card">
@@ -135,7 +135,7 @@ useEffect(() => {
       <button className="photo-break__button">
         <span className="photo-break__button-header">Massachusetts Property Owners</span>
         <span className="photo-break__button-sub">
-          learn how to earn passive income through a new state battery incentive program
+          Learn how to earn passive income through a new state battery incentive program
         </span>
       </button>
     </div>
@@ -157,7 +157,7 @@ useEffect(() => {
               performance and saving money.
             </p>
             <p>
-              Whether you are pursuing Net-Zero Energy, LEED, backup power, or simply a healthier
+              Whether you are pursuing energy compliance, passive income from your land or roof, backup power, or simply a healthier
               bottom line for your building, we create customized solutions to meet the project&apos;s needs.
             </p>
           </div>
@@ -181,7 +181,7 @@ useEffect(() => {
     <div className="project-details">
       <h3>SmartRoof Program,<br />Washington, DC Department of General Services</h3>
       <ul>
-        <li>On-going multi-year program providing solar PV feasibility, system design, and owner’s rep services during construction.</li>
+        <li>On-going multi-year program providing solar PV feasibility and procurement support, system design, and owner's rep services during construction.</li>
         <li>Nation’s first roof-based clean technology program with solar PV and vegetated roofs.</li>
         <li>Largest on-site municipal solar procurement in US history (~12MW on 50 sites).</li>
         <li>1M square feet and counting in new vegetated green roof installations.</li>
@@ -249,18 +249,19 @@ useEffect(() => {
     <div className="contact-form">
       <h2>CONTACT</h2>
       <p>Email us at info@lightboxenergy.com or use the form below:</p>
-      <form>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" required />
+      <form action="https://formspree.io/f/xgvdozdg" method="POST">
+  <label htmlFor="name">Name</label>
+  <input type="text" id="name" name="name" required />
 
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" required />
+  <label htmlFor="email">Email</label>
+  <input type="email" id="email" name="email" required />
 
-        <label htmlFor="message">Message</label>
-        <textarea id="message" name="message" rows={4} required></textarea>
+  <label htmlFor="message">Message</label>
+  <textarea id="message" name="message" rows={4} required></textarea>
 
-        <button type="submit">Send</button>
-      </form>
+  <button type="submit">Send</button>
+</form>
+
     </div>
   </div>
 </section>

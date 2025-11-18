@@ -522,7 +522,7 @@ p {
 .services .services-content,
 .projects .projects-content,
 .contact .contact-content {
-  max-width: 1400px;   /* keep lines readable; remove if you want true edge-to-edge */
+  max-width: 1600px;   /* keep lines readable; remove if you want true edge-to-edge */
   margin: 0 auto;
   padding: 0rem 2rem;  /* moved from .section-text */
 }
