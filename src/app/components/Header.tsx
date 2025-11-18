@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [shrinkHeader, setShrinkHeader] = useState(false);
@@ -8,7 +9,7 @@ export default function Header() {
   // Toggle shrink when scrolling down
   useEffect(() => {
     const handleScroll = () => {
-      setShrinkHeader(window.scrollY > 50); // shrink after 50px scroll
+      setShrinkHeader(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -17,14 +18,17 @@ export default function Header() {
   return (
     <header className={`header ${shrinkHeader ? "shrink" : ""}`}>
       <div className="header-inner">
-       <div className="header-logo">
-  <Image
-    src="/photos/path2.jpg"
-    alt="Lightbox Logo"
-    fill
-    style={{ objectFit: "contain" }} 
-  />
-</div>
+
+        {/* Logo wrapped in a link */}
+        <Link href="#top" scroll={true} className="header-logo">
+          <Image
+            src="/photos/path2.jpg"
+            alt="Lightbox Logo"
+            fill
+            style={{ objectFit: "contain" }}
+          />
+        </Link>
+
         <nav className="header-nav">
           <a href="#about">About</a>
           <a href="#services">Services</a>
