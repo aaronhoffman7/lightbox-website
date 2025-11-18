@@ -392,7 +392,7 @@ p {
   text-align: center;
   gap: 0.4rem;
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-  max-width: 650px;
+  max-width: 400px;
 }
 
 /* Button hover animation */
@@ -404,7 +404,7 @@ p {
 
 /* Header line inside button */
 .photo-break__button-header {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 550;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -608,6 +608,73 @@ p {
 .contact-form button:hover {
   background: var(--burntOrange);
 }
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 950px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #444;
+}
+
+.modal-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.35rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal-submit {
+  width: 100%;
+  margin-top: 1.6rem;
+  padding: 0.9rem;
+  border: none;
+  background: var(--rdmustard);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.modal-submit:hover {
+  background: var(--burntOrange);
+}
+
+
 
 
 /* === FOOTER === */
