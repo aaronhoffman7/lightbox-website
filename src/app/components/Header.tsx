@@ -20,7 +20,7 @@ export default function Header() {
       <div className="header-inner">
 
         {/* Logo wrapped in a link */}
-        <Link href="home" scroll={true} className="header-logo">
+        <Link href="#top" scroll={true} className="header-logo">
           <Image
             src="/photos/path2.jpg"
             alt="Lightbox Logo"
@@ -30,10 +30,10 @@ export default function Header() {
         </Link>
 
         <nav className="header-nav">
-          <a href="about">About</a>
-          <a href="services">Services</a>
-          <a href="projects">Projects</a>
-          <a href="contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
