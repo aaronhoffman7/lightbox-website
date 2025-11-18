@@ -181,8 +181,8 @@ useEffect(() => {
     <div className="project-details">
       <h3>SmartRoof Program,<br />Washington, DC Department of General Services</h3>
       <ul>
-        <li>On-going multi-year program providing solar PV feasibility and procurement support, system design, and owner's rep services during construction.</li>
-        <li>Nation’s first roof-based clean technology program with solar PV and vegetated roofs.</li>
+        <li>On-going multi-year program providing solar PV feasibility and procurement support, system design, and owner&apos;s rep services during construction.</li>
+        <li>Nation&apos;s first roof-based clean technology program with solar PV and vegetated roofs.</li>
         <li>Largest on-site municipal solar procurement in US history (~12MW on 50 sites).</li>
         <li>1M square feet and counting in new vegetated green roof installations.</li>
       </ul>
