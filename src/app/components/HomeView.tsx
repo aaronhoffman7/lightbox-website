@@ -247,7 +247,7 @@ export default function HomeView() {
                 <ul>
                   <li>First PV deployment of its kind for a transportation authority.</li>
                   <li>
-                    Enables solar potential across all WMATA assets – roofs, lots, garages.
+                    Enables solar potential across all WMATA assets- roofs, lots, and garages.
                   </li>
                   <li>~9MW of solar capacity planned across 9 parking lots.</li>
                   <li>Technical and financial analysis across MD, DC, and VA.</li>
@@ -270,7 +270,7 @@ export default function HomeView() {
                   </li>
                   <li>
                     Identified major cost reductions and strategies for PV systems and
-                    SREC treatment.
+                    SREC management.
                   </li>
                 </ul>
               </div>
