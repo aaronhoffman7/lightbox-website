@@ -33,8 +33,8 @@ body {
 
 .video-header {
   position: relative;
-  height: 100svh;        /* mobile-safe viewport units */
-  height: 100vh;         /* fallback */
+  height: 100svh;
+  height: 100vh;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -46,17 +46,15 @@ body {
   padding-right: 0;
 }
 
-/* Constrain the video to ONLY the hero */
 .video-background {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* behind overlay text */
+  z-index: -1;
 }
 
-/* Centered overlay stays visible */
 .video-overlay {
   position: absolute;
   top: 50%;
@@ -72,7 +70,7 @@ body {
   color: var(--burntOrange);
   letter-spacing: 5px;
   line-height: 1.3;
-  white-space: normal;       /* allow wrap on any screen */
+  white-space: normal;
   display: inline-block;
   padding: 0 1rem;
   max-width: 90vw;
@@ -105,10 +103,9 @@ body {
   width: 100vw;
   height: 6px;
   background: var(--rdLightboxBlue);
-  z-index: 12; /* above header background */
+  z-index: 12;
 }
 
-/* REPLACE your existing .header-inner rule */
 .header-inner {
   display: flex;
   flex-direction: row;
@@ -121,22 +118,13 @@ body {
   transition: transform 0.4s ease, padding 0.4s ease;
 }
 
-@media (max-width: 1200px) {
-  .header-inner {
-    padding: 1rem 2rem;
-  }
-}
-
-
-
 .header-logo {
   position: relative;
   width: 220px;
   aspect-ratio: 3 / 2;
   transition: width 0.4s ease;
-  margin: 0;                      /* NEW: removes bottom margin */
+  margin: 0;
 }
-
 
 .header.shrink .header-logo {
   width: 180px;
@@ -145,7 +133,7 @@ body {
 .header-nav {
   display: flex;
   gap: 3rem;
-  margin: 0;                 /* horizontal layout doesn't need top margin */
+  margin: 0;
 }
 
 .header-nav a {
@@ -161,21 +149,19 @@ body {
   color: var(--rdmustard);
 }
 
-
 .header.shrink .header-inner {
   padding: 0.5rem 3rem;
   transform: scale(0.9);
 }
 
-
 /* === SECTION BASE === */
 .page-section {
-  background: #fff;  
+  background: #fff;
   padding: 1.9rem 0rem;
   text-align: left;
   border-top: none;
   position: relative;
-  z-index: 3; 
+  z-index: 3;
 }
 
 .page-section::before {
@@ -183,14 +169,13 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%); /* center the 100vw strip */
+  transform: translateX(-50%);
   width: 100vw;
   height: 6px;
   background: var(--rdLightboxBlue);
   pointer-events: none;
-  z-index: 5; /* above backgrounds, below content */
+  z-index: 5;
 }
-
 
 .page-section:last-of-type {
   border-bottom: none;
@@ -209,24 +194,21 @@ body {
   z-index: 5;
 }
 
-
 .section-text {
   flex: 1;
   padding: 0;
   background: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* optional: vertically center text */
+  justify-content: center;
   width: 100%;
 }
 
 .section-text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  font-weight: 300; /* Light */
+  font-weight: 300;
 }
-
-
 
 h2 {
   text-align: left;
@@ -254,39 +236,33 @@ p {
 }
 
 /* === ABOUT SECTION === */
-
-/* Remove vertical padding so content (and image) can touch blue bars */
 .about.page-section {
   padding-top: 0;
   padding-bottom: 0;
   background: #fff;
 }
 
-/* Layout wrapper: two columns, same height */
 .about-content {
   display: flex;
-  align-items: stretch;        /* both columns match height */
+  align-items: stretch;
   justify-content: space-between;
   background: transparent;
 }
 
-/* Full-width row, no centering constraints */
 .about .about-content {
   max-width: none;
   width: 100vw;
   margin: 0;
-  padding: 0;                  /* children handle their own padding */
+  padding: 0;
 }
 
-/* Text column: pushed in from left, readable width */
 .about .section-text {
-  max-width: 1050px;                   /* keep copy readable */
-  padding: 4rem 3rem 4rem 5rem;       /* top, right, bottom, LEFT */
+  max-width: 1050px;
+  padding: 4rem 3rem 4rem 5rem;
 }
 
-/* Image column: full height, flush right */
 .about-image {
-  flex: 0 0 30%;   /* instead of growing indefinitely */
+  flex: 0 0 30%;
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
@@ -294,45 +270,13 @@ p {
 }
 
 .about-image img {
-  width: 100%;                        /* fill entire right column */
-  height: 100%;                       /* stretch from top blue bar to bottom blue bar */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* REPLACE your existing @media (max-width: 900px) about block */
-@media (max-width: 900px) {
-  .about.page-section {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .about-content {
-    flex-direction: column;
-  }
-
-  .about .section-text {
-    max-width: 100%;
-    padding: 2.5rem 1.5rem 2rem;
-    text-align: left;
-  }
-
-  .about-image {
-    flex: none;
-    width: 100%;
-    height: 260px;
-    margin-top: 0;
-  }
-
-  .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-
-/* The image slice itself (unchanged) */
+/* === PHOTO BREAK === */
 .photo-break {
   width: 100vw;
   max-width: 100vw;
@@ -345,13 +289,14 @@ p {
   background-image: url("/photos/batteries1.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* desktop parallax */
+  background-attachment: fixed;
   overflow: hidden;
   background-repeat: no-repeat;
   padding-left: 0;
   padding-right: 0;
   border-bottom: none;
 }
+
 .photo-break::before {
   content: "";
   position: absolute;
@@ -365,7 +310,6 @@ p {
   z-index: 5;
 }
 
-/* Optional: full-bleed bottom rule for photo-break too (if you want both) */
 .photo-break::after {
   content: "";
   position: absolute;
@@ -379,23 +323,22 @@ p {
   z-index: 5;
 }
 
-/* Avoid double blue rule where ABOUT (.page-section) meets PHOTO BREAK */
 .page-section + .photo-break::after {
-  content: none;   /* kill the photo-break top bar in this case */
+  content: none;
 }
 
-/* The fixed, centered overlay. Default: fully hidden (no ghost). */
 .photo-break__overlay {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.96);
-  z-index: 2;                 /* below sections (3), above photo-break background */
+  z-index: 2;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
 }
+
 .photo-break__overlay.visible {
   opacity: 1;
   visibility: visible;
@@ -403,7 +346,6 @@ p {
   transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s;
 }
 
-/* Refine button size and typography */
 .photo-break__button {
   pointer-events: auto;
   background: var(--burntOrange);
@@ -423,14 +365,12 @@ p {
   max-width: 400px;
 }
 
-/* Button hover animation */
 .photo-break__button:hover {
   transform: scale(1.05);
   background: var(--rdLightboxBlue);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Header line inside button */
 .photo-break__button-header {
   font-size: 0.95rem;
   font-weight: 550;
@@ -439,7 +379,6 @@ p {
   color: #fff;
 }
 
-/* Subtext line inside button */
 .photo-break__button-sub {
   font-size: 0.9rem;
   font-weight: 300;
@@ -447,7 +386,6 @@ p {
   line-height: 1.4;
   max-width: 80%;
 }
-
 
 /* === SERVICES GRID === */
 .services-grid {
@@ -492,10 +430,11 @@ p {
   color: var(--myForestGreen);
 }
 
+/* === PROJECTS === */
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* space between projects */
+  gap: 2rem;
 }
 
 .project-block {
@@ -513,7 +452,6 @@ p {
   object-fit: cover;
   border-radius: 10px;
 }
-
 
 .project-details {
   width: 50%;
@@ -537,7 +475,7 @@ p {
   margin-bottom: 0.8rem;
 }
 
-
+/* === SECTION WRAPPERS === */
 .contact {
   background: #fff;
 }
@@ -546,15 +484,15 @@ p {
   background: #fff;
 }
 
-
 .services .services-content,
 .projects .projects-content,
 .contact .contact-content {
-  max-width: 1600px;   /* keep lines readable; remove if you want true edge-to-edge */
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0rem 2rem;  /* moved from .section-text */
+  padding: 0rem 2rem;
 }
 
+/* === CONTACT === */
 .contact-content {
   display: flex;
   min-height: 400px;
@@ -563,15 +501,14 @@ p {
 .contact-map {
   flex: 1;
   display: flex;
-  flex-direction: column;   /* stack header + map vertically */
-  align-items: center;      /* center-align text and map */
+  flex-direction: column;
+  align-items: center;
   padding: 1rem;
   background: #fff;
-  padding-top: 3rem; /* adds space at the top of the column */
+  padding-top: 3rem;
 }
 
 .contact-map .map-title {
-  
   margin: 0;
   font-size: 1.2rem;
 }
@@ -580,29 +517,14 @@ p {
   margin: 0 0 2rem;
   font-size: 1rem;
   color: #444;
-
 }
 
-/* REPLACE your existing .contact-map iframe rule */
 .contact-map iframe {
   width: 85%;
   height: 400px;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
-@media (max-width: 900px) {
-  .contact-content {
-    flex-direction: column;
-  }
-
-  .contact-map iframe {
-    width: 100%;
-    height: 300px;
-  }
-}
-
-
 
 .contact-form {
   flex: 1;
@@ -648,7 +570,7 @@ p {
   background: var(--burntOrange);
 }
 
-
+/* === MODAL === */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -660,7 +582,6 @@ p {
   align-items: center;
 }
 
-/* REPLACE your existing .modal-box rule */
 .modal-box {
   background: #fff;
   padding: 2rem;
@@ -716,9 +637,6 @@ p {
   background: var(--burntOrange);
 }
 
-
-
-
 /* === FOOTER === */
 footer {
   text-align: center;
@@ -727,64 +645,118 @@ footer {
   background: #fff;
 }
 
+/* === RESPONSIVE BREAKPOINTS === */
 
-/* === MOBILE OPTIMIZATION (phones) === */
+@media (max-width: 1200px) {
+  .header-inner {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .about.page-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about .section-text {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: left;
+  }
+
+  .about-image {
+    flex: none;
+    width: 100%;
+    height: 260px;
+    margin-top: 0;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-map iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
-  /* Header: more compact */
-.header-inner {
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 0.75rem 1rem !important;
-  column-gap: 1.25rem !important;   /* NEW: adds spacing between logo + nav */
-}
+  /* Header */
+  .header-inner {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.75rem 1rem !important;
+    column-gap: 1.25rem !important;
+  }
 
-.header-logo {
-  width: 150px !important;
-  margin-bottom: 0 !important;
-  align-self: center;
-}
+  .header-logo {
+    width: 150px !important;
+    margin-bottom: 0 !important;
+    align-self: center;
+  }
 
-/* Balanced nav */
-.header-nav {
-  display: flex;
-  gap: 1rem !important;
-  margin-top: 0 !important;
-  align-items: center;
-}
+  .header-nav {
+    display: flex;
+    gap: 1rem !important;
+    margin-top: 0 !important;
+    align-items: center;
+  }
 
-/* Nav link size */
-.header-nav a {
-  font-size: 0.95rem !important;
-  letter-spacing: 0.3px !important;
-}
+  .header-nav a {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.3px !important;
+  }
 
-/* Prevent double-shrinking */
-.header.shrink .header-inner {
-  transform: none !important;
-  padding: 0.6rem 0.9rem !important;
-}
+  .header.shrink .header-inner {
+    transform: none !important;
+    padding: 0.6rem 0.9rem !important;
+  }
 
-.header.shrink .header-logo {
-  width: 135px !important;
-}
+  .header.shrink .header-logo {
+    width: 135px !important;
+  }
 
-  /* Hero / tagline */
+  /* Hero */
   .video-header {
-    height: 75vh;             /* slightly shorter on phones */
+    height: 75vh;
   }
 
   .tagline {
-    max-width: 90%;          /* NEW: widens text block */
-    margin: 0 auto;          /* NEW: centers it cleanly */
-    line-height: 1.35;        /* slightly taller for readability */
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.35;
     font-size: 1.7rem;
     letter-spacing: 2px;
-    white-space: normal;      /* allow wrapping on small screens */
+    white-space: normal;
     padding: 0 1.5rem;
   }
 
-  /* Global section padding & headings */
+  /* Sections */
   .page-section {
     padding: 1.5rem 0;
   }
@@ -799,19 +771,19 @@ footer {
     margin-right: auto;
   }
 
-  /* ABOUT mobile layout */
+  /* About */
   .about-content {
     flex-direction: column;
   }
 
-.about .section-text {
-  text-align: left !important;
-  padding: 2.5rem 1.5rem 2rem !important;
-}
+  .about .section-text {
+    text-align: left !important;
+    padding: 2.5rem 1.5rem 2rem !important;
+  }
 
   .about-image {
     flex: none;
-    height: 220px;           /* shorter image band on phones */
+    height: 220px;
     margin-top: 0.5rem;
   }
 
@@ -819,45 +791,29 @@ footer {
     height: 100%;
   }
 
-  /* Constrain inner content horizontally */
+  /* Content padding */
   .services .services-content,
   .projects .projects-content,
   .contact .contact-content {
     padding: 0 1.25rem;
   }
 
-/* REPLACE your existing .services-grid rule */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 1100px) {
+  /* Services */
   .services-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
   }
-}
-
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
   .service-card img {
     height: 140px;
   }
 
-  /* PROJECTS: stack image + text */
-  .project-block {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
+  /* Projects */
+  .project-block,
   .project-block:nth-child(even) {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .project-block img {
@@ -868,13 +824,13 @@ footer {
     width: 100%;
   }
 
-  /* PHOTO BREAK: avoid fixed attachment on mobile */
+  /* Photo break */
   .photo-break {
     height: 40vh;
-    background-attachment: scroll;  /* better behavior on iOS */
+    background-attachment: scroll;
   }
 
-  /* CONTACT: single column */
+  /* Contact */
   .contact-content {
     flex-direction: column;
   }
@@ -892,10 +848,9 @@ footer {
     padding: 2rem 1.5rem;
   }
 
-  /* Footer: slightly tighter */
+  /* Footer */
   footer {
     padding: 1.5rem 1rem;
     font-size: 0.9rem;
   }
 }
-
