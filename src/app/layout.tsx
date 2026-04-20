@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   title: "Lightbox Energy",
   description: "Lightbox Energy",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
