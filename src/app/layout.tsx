@@ -9,12 +9,6 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Lightbox Energy",
   description: "Lightbox Energy",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
