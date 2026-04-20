@@ -70,10 +70,11 @@ body {
   color: var(--burntOrange);
   letter-spacing: 5px;
   line-height: 1.3;
-  white-space: normal;
+  white-space: nowrap;
   display: inline-block;
   padding: 0 1rem;
-  max-width: 90vw;
+  max-width: 100%;
+  text-align: center;
 }
 
 /* === HEADER === */
