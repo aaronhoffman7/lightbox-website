@@ -26,6 +26,10 @@ export default function HomeView() {
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
+  // prevent rapid/bot resubmission
+  const [contactSubmitting, setContactSubmitting] = useState(false);
+  const [modalSubmitting, setModalSubmitting] = useState(false);
+
   useEffect(() => {
     const section = document.getElementById("photo-break");
     if (!section) return;
@@ -299,20 +303,29 @@ export default function HomeView() {
           <div className="contact-form">
             <h2>CONTACT</h2>
             <p>Email us at info@lightboxenergy.com or use the form below:</p>
-            <form action="https://formspree.io/f/xgvdozdg" method="POST">
+            <form
+              action="https://formspree.io/f/xgvdozdg"
+              method="POST"
+              onSubmit={() => setContactSubmitting(true)}
+            >
+              {/* honeypot — bots fill this, Formspree discards the submission */}
+              <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" required maxLength={100} />
 
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" required maxLength={254} />
 
               <label htmlFor="phone">Phone (optional)</label>
-              <input type="text" id="phone" name="phone" />
+              <input type="text" id="phone" name="phone" maxLength={20} />
 
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows={4} required></textarea>
+              <textarea id="message" name="message" rows={4} required maxLength={2000}></textarea>
 
-              <button type="submit">Send</button>
+              <button type="submit" disabled={contactSubmitting}>
+                {contactSubmitting ? "Sending…" : "Send"}
+              </button>
             </form>
           </div>
         </div>
@@ -333,24 +346,28 @@ export default function HomeView() {
               action="https://formspree.io/f/xgvdozdg"
               method="POST"
               className="modal-form"
+              onSubmit={() => setModalSubmitting(true)}
             >
+              {/* honeypot — bots fill this, Formspree discards the submission */}
+              <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
               <label>Name</label>
-              <input type="text" name="name" required />
+              <input type="text" name="name" required maxLength={100} />
 
               <label>Email</label>
-              <input type="email" name="email" required />
+              <input type="email" name="email" required maxLength={254} />
 
               <label>Phone (optional)</label>
-              <input type="text" name="phone" />
+              <input type="text" name="phone" maxLength={20} />
 
               <label>Site Address (optional)</label>
-              <input type="text" name="site address" />
+              <input type="text" name="site_address" maxLength={200} />
 
               <label>Message</label>
-              <textarea name="message" rows={4} required></textarea>
+              <textarea name="message" rows={4} required maxLength={2000}></textarea>
 
-              <button type="submit" className="modal-submit">
-                Send
+              <button type="submit" className="modal-submit" disabled={modalSubmitting}>
+                {modalSubmitting ? "Sending…" : "Send"}
               </button>
             </form>
           </div>
